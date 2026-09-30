@@ -29,6 +29,12 @@ export function HomeUI({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
+    const root = document.documentElement
+    root.classList.toggle('past-hero', heroGone)
+    return () => root.classList.remove('past-hero')
+  }, [heroGone])
+
+  useEffect(() => {
     const ratios = new Map<string, number>()
     const io = new IntersectionObserver(
       (en) => {
