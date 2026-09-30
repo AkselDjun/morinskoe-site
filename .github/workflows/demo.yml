@@ -1,0 +1,53 @@
+name: Демо на Firebase
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: demo
+  cancel-in-progress: true
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    env:
+      FIREBASE_SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+    steps:
+      - name: Проверка ключа Firebase
+        id: key
+        run: |
+          if [ -n "$FIREBASE_SA" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; echo "::notice::Секрет FIREBASE_SERVICE_ACCOUNT не задан — демо не публикуется"; fi
+
+      - uses: actions/checkout@v4
+        if: steps.key.outputs.ok == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.key.outputs.ok == 'true'
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Кэш картинок
+        if: steps.key.outputs.ok == 'true'
+        uses: actions/cache@v4
+        with:
+          path: public/img
+          key: img-${{ hashFiles('photos/**', 'scripts/images.mjs') }}
+          restore-keys: img-
+
+      - name: Сборка демо
+        if: steps.key.outputs.ok == 'true'
+        run: |
+          npm ci
+          npm run build:demo
+
+      - name: Публикация на Firebase
+        if: steps.key.outputs.ok == 'true'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: ${{ vars.FIREBASE_PROJECT_ID }}
+          channelId: live

@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+public/img
+next-env.d.ts
+*.tsbuildinfo
+public/api/config.php
+out-demo
+.firebase

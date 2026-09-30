@@ -1,0 +1,46 @@
+name: Публикация на hoster.by
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Кэш картинок
+        uses: actions/cache@v4
+        with:
+          path: public/img
+          key: img-${{ hashFiles('photos/**', 'scripts/images.mjs') }}
+          restore-keys: img-
+
+      - name: Сборка сайта
+        run: |
+          npm ci
+          npm run build
+
+      - name: Загрузка по FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./out/
+          server-dir: ${{ vars.FTP_DIR || 'public_html/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            api/config.php

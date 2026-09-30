@@ -1,0 +1,7 @@
+Options -Indexes
+<FilesMatch "^(config|config\.sample)\.php$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+  Header always set Cache-Control "no-store"
+</IfModule>

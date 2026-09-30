@@ -1,0 +1,27 @@
+{
+  "name": "morinskoe-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "images": "node scripts/images.mjs",
+    "dev": "next dev",
+    "build": "node scripts/images.mjs && next build",
+    "start": "npx serve out",
+    "build:demo": "node scripts/build-demo.mjs",
+    "deploy:demo": "firebase deploy --only hosting"
+  },
+  "dependencies": {
+    "@fontsource/golos-text": "^5.2.5",
+    "@fontsource/prata": "^5.2.5",
+    "next": "16.3.7",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.0"
+  }
+}
