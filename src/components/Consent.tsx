@@ -9,7 +9,7 @@ import { lockScroll } from '@/lib/scroll-lock'
 import { useFocusTrap } from '@/lib/focus-trap'
 import { Icon } from './icons'
 
-export type ConsentState = { maps: boolean; an: boolean }
+export type ConsentState = { an: boolean }
 
 type Ctx = {
   consent: ConsentState | null
@@ -35,13 +35,12 @@ const ANALYTICS = !!SITE.metrikaId
 function readConsent(): ConsentState | null {
   const m = document.cookie.match(new RegExp(`(?:^|; )${COOKIE}=([^;]*)`))
   if (!m) return null
-  const [maps, an] = decodeURIComponent(m[1]).split('.')
-  return { maps: maps === '1', an: an === '1' }
+  return { an: decodeURIComponent(m[1]).split('.').pop() === '1' }
 }
 
 function writeConsent(c: ConsentState) {
   const secure = location.protocol === 'https:' ? '; Secure' : ''
-  document.cookie = `${COOKIE}=${c.maps ? 1 : 0}.${c.an ? 1 : 0}; Max-Age=31536000; Path=/; SameSite=Lax${secure}`
+  document.cookie = `${COOKIE}=${c.an ? 1 : 0}; Max-Age=31536000; Path=/; SameSite=Lax${secure}`
 }
 
 type YM = ((...args: unknown[]) => void) & { a?: unknown[]; l?: number }
@@ -79,7 +78,7 @@ function Banner({ onAll, onMin, onMore }: { onAll: () => void; onMin: () => void
     <div className="cookie" role="region" aria-label="Согласие на cookie">
       <b>Мы используем cookie</b>
       <p>
-        Чтобы сайт работал, а отзывы подгружались с Яндекс Карт.{ANALYTICS ? ' Аналитику включим только с вашего согласия.' : ''} Подробнее — в{' '}
+        Необходимые cookie нужны, чтобы сайт работал. Аналитику включим только с вашего согласия. Подробнее — в{' '}
         <Link href="/privacy/">политике конфиденциальности</Link>.
       </p>
       <div className="ck-btns">
@@ -98,7 +97,6 @@ function Banner({ onAll, onMin, onMore }: { onAll: () => void; onMin: () => void
 }
 
 function Settings({ open, initial, onClose, onSave }: { open: boolean; initial: ConsentState; onClose: () => void; onSave: (c: ConsentState) => void }) {
-  const [maps, setMaps] = useState(initial.maps)
   const [an, setAn] = useState(initial.an)
   const closeRef = useRef<HTMLButtonElement>(null)
   const returnRef = useRef<Element | null>(null)
@@ -107,7 +105,6 @@ function Settings({ open, initial, onClose, onSave }: { open: boolean; initial: 
 
   useEffect(() => {
     if (!open) return
-    setMaps(initial.maps)
     setAn(initial.an)
     returnRef.current = document.activeElement
     lockScroll(true)
@@ -122,7 +119,7 @@ function Settings({ open, initial, onClose, onSave }: { open: boolean; initial: 
       const el = returnRef.current as HTMLElement | null
       if (el && document.body.contains(el)) el.focus({ preventScroll: true })
     }
-  }, [open, initial.maps, initial.an, onClose])
+  }, [open, initial.an, onClose])
 
   return (
     <div
@@ -159,17 +156,6 @@ function Settings({ open, initial, onClose, onSave }: { open: boolean; initial: 
         </div>
         <div className="opt">
           <div>
-            <b id="ck-maps-l">Отзывы</b>
-            <span>Виджет отзывов Яндекс Карт. Яндекс ставит свои cookie.</span>
-          </div>
-          <label className="sw">
-            <input type="checkbox" role="switch" aria-labelledby="ck-maps-l" checked={maps} onChange={(e) => setMaps(e.target.checked)} />
-            <i />
-          </label>
-        </div>
-        {ANALYTICS ? (
-        <div className="opt">
-          <div>
             <b id="ck-an-l">Аналитика</b>
             <span>Яндекс Метрика: помогает понять, какие разделы полезны. Без персональных данных в отчётах.</span>
           </div>
@@ -178,12 +164,11 @@ function Settings({ open, initial, onClose, onSave }: { open: boolean; initial: 
             <i />
           </label>
         </div>
-        ) : null}
         <div className="ck-btns">
-          <button className="btn btn-line2" type="button" onClick={() => onSave({ maps, an })}>
+          <button className="btn btn-line2" type="button" onClick={() => onSave({ an })}>
             Сохранить выбор
           </button>
-          <button className="btn btn-dark" type="button" onClick={() => onSave({ maps: true, an: ANALYTICS })}>
+          <button className="btn btn-dark" type="button" onClick={() => onSave({ an: true })}>
             Принять все
           </button>
         </div>
@@ -214,15 +199,15 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   )
   const openSettings = useCallback(() => setModal(true), [])
   const closeSettings = useCallback(() => setModal(false), [])
-  const bannerOpen = ready && consent === null
+  const bannerOpen = ANALYTICS && ready && consent === null
 
   return (
     <ConsentContext.Provider value={{ consent, ready, bannerOpen, openSettings, save }}>
       {children}
       {bannerOpen && !modal ? (
-        <Banner onAll={() => save({ maps: true, an: ANALYTICS })} onMin={() => save({ maps: false, an: false })} onMore={openSettings} />
+        <Banner onAll={() => save({ an: true })} onMin={() => save({ an: false })} onMore={openSettings} />
       ) : null}
-      <Settings open={modal} initial={consent ?? { maps: true, an: false }} onClose={closeSettings} onSave={save} />
+      {ANALYTICS ? <Settings open={modal} initial={consent ?? { an: false }} onClose={closeSettings} onSave={save} /> : null}
       {consent?.an && SITE.metrikaId ? <Metrika id={SITE.metrikaId} /> : null}
     </ConsentContext.Provider>
   )
@@ -230,6 +215,7 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
 
 export function CookieSettingsButton({ className }: { className?: string }) {
   const { openSettings } = useConsent()
+  if (!ANALYTICS) return null
   return (
     <button type="button" className={className} onClick={openSettings}>
       Настройки cookie
