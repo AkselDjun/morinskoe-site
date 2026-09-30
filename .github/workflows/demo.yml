@@ -1,0 +1,41 @@
+name: Demo Firebase
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: demo
+  cancel-in-progress: true
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Кэш картинок
+        uses: actions/cache@v4
+        with:
+          path: public/img
+          key: img-${{ hashFiles('photos/**', 'scripts/images.mjs') }}
+          restore-keys: img-
+
+      - name: Сборка демо
+        run: |
+          npm ci
+          npm run build:demo
+
+      - name: Публикация на Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MORINSKOE_8F416 }}
+          projectId: morinskoe-8f416
+          channelId: live
