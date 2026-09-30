@@ -7,6 +7,8 @@ import { Icon } from '@/components/icons'
 import { Footer } from '@/components/Book'
 import { PolicyToc } from '@/components/PolicyToc'
 import { OG_BASE } from '@/lib/meta'
+import { JsonLd } from '@/components/JsonLd'
+import { breadcrumbSchema } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: POLICY_TITLE,
@@ -139,6 +141,7 @@ export default function PrivacyPage() {
         </div>
       </main>
       <Footer onPolicy />
+      <JsonLd data={breadcrumbSchema(POLICY_TITLE, '/privacy/')} />
     </div>
   )
 }

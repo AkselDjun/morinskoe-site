@@ -51,11 +51,13 @@ export function Hero() {
         </div>
       </div>
       <div className="wrap hero-body">
-        <span className="kicker">
-          {HERO.kicker} · <span className="far">{HERO.kickerFar}</span>
-          {HERO.kickerEnd}
-        </span>
-        <h1>{HERO.title}</h1>
+        <h1>
+          <span className="kicker">
+            {HERO.kicker} · <span className="far">{HERO.kickerFar}</span>
+            {HERO.kickerEnd}
+          </span>
+          <span className="h1-t">{HERO.title}</span>
+        </h1>
         <div className="hero-cta">
           <a className="btn btn-sand" href="#book">
             {HERO.cta}
