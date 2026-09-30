@@ -24,6 +24,8 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
+  appleWebApp: { title: SITE.name, statusBarStyle: 'black-translucent' },
+  formatDetection: { telephone: false, address: false, email: false, date: false },
   ...(SITE.demo ? { robots: { index: false, follow: false } } : {}),
 }
 
@@ -38,6 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru" data-scroll-behavior="smooth">
       <body>
+        <div className="safe-top" aria-hidden="true" />
         <ConsentProvider>
           <ViewTransition>{children}</ViewTransition>
         </ConsentProvider>

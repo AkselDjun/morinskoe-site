@@ -114,8 +114,6 @@ export function EstateMap() {
         <div className="route-text">
           <h2 id="route-h">{ROUTE.title}</h2>
           <span className="addr">
-            {ROUTE.hint}
-            <br />
             {SITE.addressShort} · <span className="nw">{SITE.coords}</span>
           </span>
           <div className="dist">
