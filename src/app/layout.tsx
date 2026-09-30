@@ -20,13 +20,27 @@ export const metadata: Metadata = {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
     ],
     apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
+  applicationName: SITE.name,
   appleWebApp: { title: SITE.name, statusBarStyle: 'black-translucent' },
   formatDetection: { telephone: false, address: false, email: false, date: false },
-  ...(SITE.demo ? { robots: { index: false, follow: false } } : {}),
+  robots: SITE.demo
+    ? { index: false, follow: false }
+    : { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } },
+  verification: {
+    ...(SITE.googleVerification ? { google: SITE.googleVerification } : {}),
+    ...(SITE.yandexVerification ? { yandex: SITE.yandexVerification } : {}),
+  },
+  other: {
+    'geo.region': 'BY-HR',
+    'geo.placename': 'Морино, Ивьевский район, Гродненская область',
+    'geo.position': `${SITE.geo.lat};${SITE.geo.lng}`,
+    ICBM: `${SITE.geo.lat}, ${SITE.geo.lng}`,
+  },
 }
 
 export const viewport: Viewport = {

@@ -8,6 +8,7 @@ import { AutoHome } from '@/components/AutoHome'
 
 export const metadata: Metadata = {
   title: 'Страница не найдена',
+  robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
 }
 
 export default function NotFound() {
