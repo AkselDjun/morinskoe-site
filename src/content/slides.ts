@@ -36,6 +36,16 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "cer_lawn_thuja",
       "cap": "Прогулка по лужайке у туй",
       "pos": "50% 70%"
+    },
+    {
+      "key": "cer_thuja_river_kiss",
+      "cap": "Аллея туй у реки",
+      "pos": "50% 45%"
+    },
+    {
+      "key": "cer_river_view",
+      "cap": "Вид на реку",
+      "pos": "50% 40%"
     }
   ],
   "ch2": [
@@ -105,6 +115,11 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "houses_fog",
       "cap": "Туман над усадьбой",
       "pos": "60% 55%"
+    },
+    {
+      "key": "house_bride_lawn",
+      "cap": "Лужайка у гостевого дома",
+      "pos": "50% 25%"
     }
   ],
   "ch3b": [
@@ -122,6 +137,11 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "river_fog",
       "cap": "Утро над рекой",
       "pos": "70% 50%"
+    },
+    {
+      "key": "terrace_river_couple",
+      "cap": "Терраса у реки",
+      "pos": "50% 45%"
     }
   ]
 }
