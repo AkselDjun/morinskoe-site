@@ -21,6 +21,21 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "cer_walk",
       "cap": "Фотосессия у воды",
       "pos": "50% 45%"
+    },
+    {
+      "key": "cer_canopy",
+      "cap": "Арка из ткани и цветов",
+      "pos": "50% 70%"
+    },
+    {
+      "key": "cer_pond_pier",
+      "cap": "Фотосессия на пирсе у пруда",
+      "pos": "50% 45%"
+    },
+    {
+      "key": "cer_lawn_thuja",
+      "cap": "Прогулка по лужайке у туй",
+      "pos": "50% 70%"
     }
   ],
   "ch2": [
@@ -68,6 +83,11 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "tent_entry",
       "cap": "Вход в шатёр",
       "pos": "50% 62%"
+    },
+    {
+      "key": "tent_head_table_flowers",
+      "cap": "Стол молодожёнов в цветах",
+      "pos": "50% 65%"
     }
   ],
   "ch3a": [

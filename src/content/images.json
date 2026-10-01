@@ -1,4 +1,24 @@
 {
+  "cer_canopy": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 0.6676,
+    "src": "fb32e00b325dc4b0"
+  },
+  "cer_lawn_thuja": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 0.6668,
+    "src": "daa65041bfb6afde"
+  },
   "cer_oak": {
     "w": [
       480,
@@ -8,6 +28,16 @@
     ],
     "ratio": 0.6688,
     "src": "cd9d130c265a29cd"
+  },
+  "cer_pond_pier": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 0.6668,
+    "src": "96351d39fe2e7d68"
   },
   "cer_site": {
     "w": [
@@ -359,6 +389,16 @@
     ],
     "ratio": 1.4997,
     "src": "4a32506a55f40631"
+  },
+  "tent_head_table_flowers": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 0.6676,
+    "src": "a6c6f28ee346406a"
   },
   "tent_light_dance": {
     "w": [
