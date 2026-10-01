@@ -9,6 +9,26 @@
     "ratio": 0.6676,
     "src": "fb32e00b325dc4b0"
   },
+  "cer_deck_canopy": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 0.6668,
+    "src": "08968f4228eb2c37"
+  },
+  "cer_guests_deck": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 1.4997,
+    "src": "af2775f5ea706ea4"
+  },
   "cer_lawn_thuja": {
     "w": [
       480,
@@ -28,6 +48,16 @@
     ],
     "ratio": 0.6688,
     "src": "cd9d130c265a29cd"
+  },
+  "cer_oak_kiss": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 0.6668,
+    "src": "de5d247a9a0c14c8"
   },
   "cer_pond_pier": {
     "w": [
@@ -179,6 +209,16 @@
     "ratio": 1.4997,
     "src": "c46eff2ac0a74074"
   },
+  "fountains_cake_deck": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 1.4997,
+    "src": "56b50e6919423586"
+  },
   "g_ceremony_peony": {
     "w": [
       480,
@@ -310,6 +350,16 @@
     "ratio": 0.6668,
     "src": "9708e8f01e6eb829"
   },
+  "house_log_lawn": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 0.6668,
+    "src": "5a5a152d6dc9203b"
+  },
   "house_sun": {
     "w": [
       480,
@@ -329,6 +379,16 @@
     ],
     "ratio": 1.6853,
     "src": "62d818fa7645df34"
+  },
+  "lawn_lounge": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 1.4997,
+    "src": "0cffae505f6beb61"
   },
   "m_podium": {
     "w": [
@@ -459,6 +519,16 @@
     ],
     "ratio": 0.6664,
     "src": "58ed94f1084f83e5"
+  },
+  "tent_white_banquet": {
+    "w": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "ratio": 1.4997,
+    "src": "4c05abc3a170c48c"
   },
   "terrace_oak": {
     "w": [

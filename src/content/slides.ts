@@ -46,6 +46,21 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "cer_river_view",
       "cap": "Вид на реку",
       "pos": "50% 40%"
+    },
+    {
+      "key": "cer_deck_canopy",
+      "cap": "Церемония на настиле у реки",
+      "pos": "50% 60%"
+    },
+    {
+      "key": "cer_oak_kiss",
+      "cap": "Поцелуй под дубом",
+      "pos": "50% 55%"
+    },
+    {
+      "key": "cer_guests_deck",
+      "cap": "Гости на церемонии",
+      "pos": "50% 50%"
     }
   ],
   "ch2": [
@@ -98,6 +113,16 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "tent_head_table_flowers",
       "cap": "Стол молодожёнов в цветах",
       "pos": "50% 65%"
+    },
+    {
+      "key": "tent_white_banquet",
+      "cap": "Банкет в белом шатре",
+      "pos": "50% 50%"
+    },
+    {
+      "key": "fountains_cake_deck",
+      "cap": "Торт и холодные фонтаны",
+      "pos": "50% 55%"
     }
   ],
   "ch3a": [
@@ -120,6 +145,11 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "house_bride_lawn",
       "cap": "Лужайка у гостевого дома",
       "pos": "50% 25%"
+    },
+    {
+      "key": "house_log_lawn",
+      "cap": "Лужайка у бревенчатого дома",
+      "pos": "50% 40%"
     }
   ],
   "ch3b": [
@@ -142,6 +172,11 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "terrace_river_couple",
       "cap": "Терраса у реки",
       "pos": "50% 45%"
+    },
+    {
+      "key": "lawn_lounge",
+      "cap": "Лаунж-зона на лужайке",
+      "pos": "50% 60%"
     }
   ]
 }
