@@ -43,6 +43,31 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "key": "fountains_arch",
       "cap": "Холодные фонтаны",
       "pos": "50% 60%"
+    },
+    {
+      "key": "tent_evening",
+      "cap": "Шатёр вечером",
+      "pos": "50% 50%"
+    },
+    {
+      "key": "tent_light_dance",
+      "cap": "Танец в луче света",
+      "pos": "50% 72%"
+    },
+    {
+      "key": "tent_show",
+      "cap": "Шоу у LED-экрана",
+      "pos": "50% 55%"
+    },
+    {
+      "key": "tent_candles",
+      "cap": "Сервировка со свечами",
+      "pos": "50% 55%"
+    },
+    {
+      "key": "tent_entry",
+      "cap": "Вход в шатёр",
+      "pos": "50% 62%"
     }
   ],
   "ch3a": [
