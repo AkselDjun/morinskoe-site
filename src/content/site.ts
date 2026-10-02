@@ -9,7 +9,7 @@ export const SITE = {
   telegram: 'https://t.me/+375291878878',
   instagram: 'https://www.instagram.com/ysadba_morinskoe/',
   instagramHandle: '@ysadba_morinskoe',
-  email: '[e-mail для обращений]',
+  email: 'morinskoe@gmail.com',
   address: 'Гродненская обл., Ивьевский р-н, аг. Морино, д. 185',
   addressShort: 'аг. Морино, д. 185, Ивьевский район',
   coords: '53°52′ с. ш., 25°41′ в. д.',
