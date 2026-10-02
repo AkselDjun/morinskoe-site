@@ -18,6 +18,8 @@ export const SITE = {
   unp: 'НА2683939',
   yandexMaps: 'https://yandex.by/maps/org/morinskoye/222301159145/',
   yandexReviews: 'https://yandex.by/maps/org/morinskoye/222301159145/reviews/',
+  yandexRoute: 'https://yandex.by/maps/?rtext=~53.870039%2C25.690048&rtt=auto',
+  yandexWidget: 'https://yandex.by/map-widget/v1/?ll=25.690048%2C53.870039&z=11&pt=25.690048%2C53.870039%2Cpm2dgm&lang=ru_RU',
   googleMaps: 'https://www.google.com/maps/search/?api=1&query=53.870039,25.690048',
   rating: { value: '4,4', stars: 4, count: '10 оценок' },
   metrikaId: '',

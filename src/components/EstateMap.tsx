@@ -14,8 +14,11 @@ export function EstateMap() {
   const [pk, setPk] = useState(MAP_ACTIVE)
   const [pi, setPi] = useState(0)
   const [pos, setPos] = useState<{ left: number; top: number } | null>(null)
+  const [live, setLive] = useState(false)
+  const [loaded, setLoaded] = useState(false)
   const map = useRef<HTMLDivElement>(null)
   const pop = useRef<HTMLDivElement>(null)
+  const tabs = useRef<HTMLDivElement>(null)
   const p = MAP_POINTS[pk]
 
   const place = useCallback(() => {
@@ -35,6 +38,10 @@ export function EstateMap() {
     if (top < 14) top = Math.min(py + 48, m.clientHeight - ph - 14)
     left = Math.max(14, Math.min(m.clientWidth - pw - 14, left))
     top = Math.max(14, top)
+    const t = tabs.current
+    if (t && left < t.offsetLeft + t.offsetWidth && left + pw > t.offsetLeft && top < t.offsetTop + t.offsetHeight) {
+      top = t.offsetTop + t.offsetHeight + 10
+    }
     setPos({ left, top })
   }, [p])
 
@@ -50,6 +57,11 @@ export function EstateMap() {
     return () => ro.disconnect()
   }, [place])
 
+  const show = (on: boolean) => {
+    setLive(on)
+    if (on) setLoaded(true)
+  }
+
   const choose = (k: number) => {
     setPk(k)
     setPi(0)
@@ -59,12 +71,23 @@ export function EstateMap() {
     <section className="route" id="route" aria-labelledby="route-h">
       <div className="wrap route-grid">
         <div className="map-wrap">
-          <div className="map" ref={map}>
+          <div className={`map${live ? ' live' : ''}`} ref={map}>
             <div className="map-art" dangerouslySetInnerHTML={{ __html: MAP_SVG }} aria-hidden="true" />
+            {loaded ? (
+              <iframe className="map-ya" src={SITE.yandexWidget} title={ROUTE.mapTitle} loading="lazy" allowFullScreen hidden={!live} />
+            ) : null}
+            <div className="map-tabs" ref={tabs} role="group" aria-label="Вид карты">
+              {ROUTE.tabs.map((t, k) => (
+                <button key={t} type="button" className={live === (k === 1) ? 'on' : undefined} aria-pressed={live === (k === 1)} onClick={() => show(k === 1)}>
+                  {t}
+                </button>
+              ))}
+            </div>
             {MAP_POINTS.map((q, k) => (
               <button
                 key={q.n}
                 type="button"
+                hidden={live}
                 className={`pt${k === pk ? ' on' : ''}`}
                 style={{ '--ax': pct(q.x, MAP_W), '--ay': pct(q.y, MAP_H), '--px': pct(q.px, MAP_W), '--py': pct(q.py, MAP_H) } as CSSProperties}
                 aria-label={`${q.n}. ${q.title}`}
@@ -75,9 +98,9 @@ export function EstateMap() {
                 <span className="t">{q.title}</span>
               </button>
             ))}
-            <span className="map-note">{ROUTE.note}</span>
+            {live ? null : <span className="map-note">{ROUTE.note}</span>}
           </div>
-          <div className={`pop${p.photos.length ? '' : ' noimg'}`} ref={pop} aria-live="polite" style={pos ? { left: pos.left, top: pos.top } : undefined}>
+          <div className={`pop${p.photos.length ? '' : ' noimg'}`} ref={pop} aria-live="polite" hidden={live} style={pos ? { left: pos.left, top: pos.top } : undefined}>
             {p.photos.length ? (
               <div className="pop-img">
                 {p.photos.map((f, j) => (
@@ -101,7 +124,7 @@ export function EstateMap() {
             </div>
           </div>
         </div>
-        <ol className="legend" aria-label="Точки на карте">
+        <ol className="legend" aria-label="Точки на карте" hidden={live}>
           {MAP_POINTS.map((q, k) => (
             <li key={q.n}>
               <button type="button" className={k === pk ? 'on' : undefined} aria-pressed={k === pk} onClick={() => choose(k)}>
@@ -125,8 +148,8 @@ export function EstateMap() {
             ))}
           </div>
           <div className="maps-btns">
-            <a className="btn btn-sand" href={SITE.yandexMaps} target="_blank" rel="noopener">
-              Яндекс Карты ↗
+            <a className="btn btn-sand" href={SITE.yandexRoute} target="_blank" rel="noopener">
+              {ROUTE.routeBtn}
             </a>
             <a className="btn btn-river" href={SITE.googleMaps} target="_blank" rel="noopener">
               Google Maps ↗

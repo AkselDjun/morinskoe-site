@@ -456,6 +456,12 @@ details.q p{padding:0 26px 24px}
 .map{position:relative;aspect-ratio:708/460;max-width:100%;border-radius:24px;background:var(--sand);overflow:hidden}
 .map svg{position:absolute;inset:0;width:100%;height:100%}
 .map-wrap{position:relative}
+.map.live{background:var(--pine)}
+.map.live .map-art{display:none}
+.map-ya{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.map-tabs{position:absolute;right:10px;top:10px;z-index:2;display:flex;padding:3px;border-radius:999px;background:rgba(21,37,29,.78);box-shadow:0 6px 16px rgba(21,37,29,.22)}
+.map-tabs button{height:30px;padding:0 14px;border:0;border-radius:999px;background:transparent;color:var(--sand);font-size:12px;font-weight:600;transition:background-color .25s ease,color .25s ease}
+.map-tabs button.on{background:var(--sand);color:var(--forest)}
 .pt{position:absolute;left:var(--ax);top:var(--ay);transform:translate(-50%,-50%);height:26px;min-width:26px;padding:0;border:0;border-radius:999px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;gap:7px;font-size:11px;font-weight:600;box-shadow:0 4px 10px rgba(21,37,29,.25);transition:background-color .25s ease,color .25s ease,transform .25s ease}
 .pt:hover{transform:translate(-50%,-50%) scale(1.06)}
 .pt .n{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center}
@@ -494,6 +500,8 @@ details.q p{padding:0 26px 24px}
 .pt.on{height:36px;padding:0 14px 0 6px;font-size:14px;font-weight:600}
 .pt.on .n{width:24px;height:24px;background:var(--deep);color:var(--sand)}
 .map-note{left:24px;bottom:18px;font-size:12px}
+.map-tabs{right:18px;top:18px;padding:4px}
+.map-tabs button{height:34px;padding:0 18px;font-size:13px}
 .legend{display:none}
 .pop{position:absolute;margin-top:0;left:42%;top:14px;width:220px;flex-direction:column;align-items:stretch;gap:8px;padding:8px;border-radius:22px}
 .pop-img{width:100%;height:104px;border-radius:100px 100px 14px 14px}
