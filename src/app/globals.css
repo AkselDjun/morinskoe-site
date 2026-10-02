@@ -544,7 +544,8 @@ details.q p{padding:0 26px 24px}
 .big-phone{font-family:var(--serif);font-size:30px;line-height:1.2;color:var(--cream);transition:color .25s ease}
 .big-phone:hover{color:var(--sand)}
 .msgs{display:flex;flex-wrap:wrap;gap:8px}
-.msgs .icon-btn{width:48px;height:48px}
+.msgs a{height:46px;padding:0 14px 0 12px;gap:6px;border-radius:999px;border:1px solid var(--river);display:inline-flex;align-items:center;font-size:14px;font-weight:500;transition:background-color .25s ease}
+.msgs a:hover{background:rgba(127,163,166,.14)}
 .formcard{padding:24px 18px;border-radius:28px;background:var(--pine);border:1px solid var(--moss)}
 .form{display:flex;flex-direction:column;gap:16px}
 .form-head{display:flex;flex-direction:column;gap:4px}
@@ -573,8 +574,8 @@ details.q p{padding:0 26px 24px}
 .done dd{margin:0;overflow-wrap:anywhere}
 .done .row{display:flex;flex-wrap:wrap;gap:8px}
 .done .row .btn{height:48px;padding:0 20px;font-size:15px}
-.row-ic{display:flex;gap:8px}
-.row-ic .icon-btn{width:48px;height:48px}
+.row-ic{display:contents}
+.done .row .btn-river{gap:8px;padding:0 20px 0 16px}
 
 @media (min-width:768px){
 .book{padding-block:64px}
@@ -588,6 +589,7 @@ details.q p{padding:0 26px 24px}
 .contacts p{grid-column:1}
 .big-phone{grid-column:2;grid-row:1/span 2;font-size:36px;align-self:end}
 .msgs{grid-column:1/-1}
+.msgs a{padding:0 20px 0 16px;gap:8px;font-size:15px}
 .formcard{padding:36px;border-radius:32px}
 .fields{grid-template-columns:repeat(2,minmax(0,1fr))}
 .fields .field.wide{grid-column:1/-1}
@@ -860,8 +862,8 @@ details.q p{padding:0 26px 24px}
 .se-t b{font-size:15px;font-weight:600;color:var(--cream)}
 .se-t a{color:var(--sand);white-space:nowrap}
 .send-alt{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;font-size:13px;color:var(--fog)}
-.send-ic{display:flex;gap:8px}
-.send-ic .icon-btn{width:34px;height:34px}
+.send-ic{display:contents}
+.send-alt a{height:34px;padding:0 14px 0 11px;gap:6px;border-radius:999px;border:1px solid var(--river);display:inline-flex;align-items:center;color:var(--cream)}
 
 .nf{min-height:100vh;min-height:100svh;background:var(--forest);color:var(--cream);display:flex;flex-direction:column}
 

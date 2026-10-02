@@ -140,7 +140,7 @@ export function BookingForm() {
           <button className="btn btn-sand" type="button" onClick={reset}>
             Новая заявка
           </button>
-          <Socials names={['viber', 'telegram']} className="row-ic" />
+          <Socials names={['viber', 'telegram']} className="row-ic" itemClass="btn btn-river" />
         </div>
         {SITE.demo ? <span className="demo-note">Это демо: заявка никуда не отправлена.</span> : null}
       </div>
@@ -285,7 +285,7 @@ export function BookingForm() {
       {status === 'failed' ? (
         <div className="send-alt">
           <span>или сразу в мессенджер:</span>
-          <Socials names={['viber', 'telegram']} className="send-ic" size={16} />
+          <Socials names={['viber', 'telegram']} className="send-ic" size={15} />
         </div>
       ) : null}
     </form>
