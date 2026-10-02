@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const fill = (s: string) =>
   s
     .replaceAll('{{phone}}', `<a class="nw" href="${SITE.phoneHref}">${SITE.phone}</a>`)
-    .replaceAll('{{email}}', SITE.email)
+    .replaceAll('{{email}}', `<a class="nw" href="mailto:${SITE.email}">${SITE.email}</a>`)
     .replaceAll('{{host}}', host())
     .replaceAll('{{address}}', SITE.address)
 
