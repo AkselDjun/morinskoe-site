@@ -544,8 +544,7 @@ details.q p{padding:0 26px 24px}
 .big-phone{font-family:var(--serif);font-size:30px;line-height:1.2;color:var(--cream);transition:color .25s ease}
 .big-phone:hover{color:var(--sand)}
 .msgs{display:flex;flex-wrap:wrap;gap:8px}
-.msgs a{height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--river);display:inline-flex;align-items:center;font-size:15px;font-weight:500;transition:background-color .25s ease}
-.msgs a:hover{background:rgba(127,163,166,.14)}
+.msgs .icon-btn{width:48px;height:48px}
 .formcard{padding:24px 18px;border-radius:28px;background:var(--pine);border:1px solid var(--moss)}
 .form{display:flex;flex-direction:column;gap:16px}
 .form-head{display:flex;flex-direction:column;gap:4px}
@@ -574,6 +573,8 @@ details.q p{padding:0 26px 24px}
 .done dd{margin:0;overflow-wrap:anywhere}
 .done .row{display:flex;flex-wrap:wrap;gap:8px}
 .done .row .btn{height:48px;padding:0 20px;font-size:15px}
+.row-ic{display:flex;gap:8px}
+.row-ic .icon-btn{width:48px;height:48px}
 
 @media (min-width:768px){
 .book{padding-block:64px}
@@ -598,7 +599,7 @@ details.q p{padding:0 26px 24px}
 .steps li{padding:24px 26px;border-radius:28px}
 .book-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:start}
 .contacts{grid-column:span 5;display:flex;gap:24px}
-.big-phone{align-self:flex-start}
+.big-phone,.contacts .msgs{align-self:flex-start}
 .contacts h2{font-size:60px;line-height:1.05}
 .contacts p{font-size:17px;line-height:1.65}
 .formcard{grid-column:7/span 6;padding:44px;border-radius:36px}
@@ -859,7 +860,8 @@ details.q p{padding:0 26px 24px}
 .se-t b{font-size:15px;font-weight:600;color:var(--cream)}
 .se-t a{color:var(--sand);white-space:nowrap}
 .send-alt{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;font-size:13px;color:var(--fog)}
-.send-alt a{height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--river);display:inline-flex;align-items:center;color:var(--cream)}
+.send-ic{display:flex;gap:8px}
+.send-ic .icon-btn{width:34px;height:34px}
 
 .nf{min-height:100vh;min-height:100svh;background:var(--forest);color:var(--cream);display:flex;flex-direction:column}
 
