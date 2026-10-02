@@ -7,6 +7,7 @@ import { SITE } from '@/content/site'
 import { lockScroll } from '@/lib/scroll-lock'
 import { useFocusTrap } from '@/lib/focus-trap'
 import { Icon } from './icons'
+import { Socials } from './Socials'
 import { useConsent } from './Consent'
 
 type UI = { active: string | null; heroGone: boolean; menuOpen: boolean; openMenu: (from?: HTMLElement | null) => void; closeMenu: (restore?: boolean) => void }
@@ -170,15 +171,7 @@ function Menu() {
         <a className="big-phone" href={SITE.phoneHref}>
           {SITE.phone}
         </a>
-        <div className="msgs">
-          <a href={SITE.viber}>Viber</a>
-          <a href={SITE.telegram} target="_blank" rel="noopener">
-            Telegram
-          </a>
-          <a href={SITE.instagram} target="_blank" rel="noopener">
-            Instagram
-          </a>
-        </div>
+        <Socials />
         <a className="btn btn-sand" href="#book" onClick={() => closeMenu(false)}>
           Проверить свободную дату
         </a>

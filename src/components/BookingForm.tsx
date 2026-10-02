@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import Link from 'next/link'
 import { SITE } from '@/content/site'
+import { Socials } from './Socials'
 import { Icon } from './icons'
 
 type Status = 'idle' | 'sending' | 'failed' | 'done'
@@ -139,12 +140,7 @@ export function BookingForm() {
           <button className="btn btn-sand" type="button" onClick={reset}>
             Новая заявка
           </button>
-          <a className="btn btn-river" href={SITE.viber}>
-            Viber
-          </a>
-          <a className="btn btn-river" href={SITE.telegram} target="_blank" rel="noopener">
-            Telegram
-          </a>
+          <Socials names={['viber', 'telegram']} className="row-ic" itemClass="btn btn-river" />
         </div>
         {SITE.demo ? <span className="demo-note">Это демо: заявка никуда не отправлена.</span> : null}
       </div>
@@ -289,10 +285,7 @@ export function BookingForm() {
       {status === 'failed' ? (
         <div className="send-alt">
           <span>или сразу в мессенджер:</span>
-          <a href={SITE.viber}>Viber</a>
-          <a href={SITE.telegram} target="_blank" rel="noopener">
-            Telegram
-          </a>
+          <Socials names={['viber', 'telegram']} className="send-ic" size={15} />
         </div>
       ) : null}
     </form>

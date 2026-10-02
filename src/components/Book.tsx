@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { BOOK, FOOTER } from '@/content/home'
 import { SITE } from '@/content/site'
 import { BookingForm } from './BookingForm'
+import { Socials } from './Socials'
 import { CookieSettingsButton } from './Consent'
 
 export function Book() {
@@ -26,15 +27,7 @@ export function Book() {
             <a className="big-phone" href={SITE.phoneHref}>
               {SITE.phone}
             </a>
-            <div className="msgs">
-              <a href={SITE.viber}>Viber</a>
-              <a href={SITE.telegram} target="_blank" rel="noopener">
-                Telegram
-              </a>
-              <a href={SITE.instagram} target="_blank" rel="noopener">
-                Instagram
-              </a>
-            </div>
+            <Socials />
           </div>
           <div className="formcard">
             <BookingForm />
