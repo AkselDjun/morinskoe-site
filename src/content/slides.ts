@@ -23,21 +23,6 @@ export const SLIDES: Record<'ch1' | 'ch2' | 'ch3a' | 'ch3b', Shot[]> = {
       "pos": "50% 45%"
     },
     {
-      "key": "cer_canopy",
-      "cap": "Арка из ткани и цветов",
-      "pos": "50% 70%"
-    },
-    {
-      "key": "cer_pond_pier",
-      "cap": "Фотосессия на пирсе у пруда",
-      "pos": "50% 45%"
-    },
-    {
-      "key": "cer_lawn_thuja",
-      "cap": "Прогулка по лужайке у туй",
-      "pos": "50% 70%"
-    },
-    {
       "key": "cer_thuja_river_kiss",
       "cap": "Аллея туй у реки",
       "pos": "50% 45%"

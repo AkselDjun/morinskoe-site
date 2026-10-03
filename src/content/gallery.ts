@@ -34,21 +34,6 @@ export const GALLERY: Record<Season, GalleryItem[]> = {
       ]
     },
     {
-      "type": "pair",
-      "photos": [
-        {
-          "key": "g_pond",
-          "cap": "У пруда",
-          "pos": "50% 55%"
-        },
-        {
-          "key": "g_hay",
-          "cap": "Кружево и сено",
-          "pos": "50% 60%"
-        }
-      ]
-    },
-    {
       "type": "big",
       "photos": [
         {
@@ -70,6 +55,16 @@ export const GALLERY: Record<Season, GalleryItem[]> = {
           "key": "g_hat",
           "cap": "Шляпа и туи",
           "pos": "50% 40%"
+        }
+      ]
+    },
+    {
+      "type": "big",
+      "photos": [
+        {
+          "key": "g_hay",
+          "cap": "Кружево и сено",
+          "pos": "50% 60%"
         }
       ]
     },
