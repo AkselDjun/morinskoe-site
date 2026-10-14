@@ -115,6 +115,12 @@ const P = {
       <path d="M6 20 18 7M16.5 5.5l3 3M4.5 18.5l3 3" />
     </>
   ),
+  sail: (
+    <>
+      <path d="M12 3v13M12 4l7 10h-7M12 7l-5 7h5" />
+      <path d="M3 17h18l-2 3H5z" />
+    </>
+  ),
   image: (
     <>
       <rect x="3" y="5" width="18" height="14" rx="3" />

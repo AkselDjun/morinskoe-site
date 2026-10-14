@@ -24,7 +24,7 @@ export function Services() {
         </div>
         <div className="svc-grid">
           {SERVICES.items.map((s) => (
-            <div className="svc" key={s.title}>
+            <div className={'wide' in s ? 'svc wide' : 'svc'} key={s.title}>
               <Icon name={s.icon} size={30} sw={1.4} color="#E8DCC4" />
               <div>
                 <b>{s.title}</b>
