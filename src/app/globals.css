@@ -354,6 +354,10 @@ button.g-big:hover img,button.g-tile:hover img{transform:scale(1.04)}
 .g-end b{display:block;font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.2}
 .g-end span{display:block;margin-top:10px;font-size:13px;font-weight:500;color:var(--rivert)}
 .gallery .g-foot{margin-top:16px}
+.g-clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.house2{padding-top:8px}
+.h2-title{display:flex;flex-direction:column;gap:8px}
+.h2-text{margin:0;font-size:15px;line-height:1.6;color:var(--fog);max-width:520px}
 @media (min-width:768px){
 .gallery{padding-block:0 64px;--gh:372px;--gbig:340px;--gpair:290px;--gend:260px;--gg:12px;--gcs:12px;--gci:16px}
 .g-head{gap:24px;margin-bottom:24px}

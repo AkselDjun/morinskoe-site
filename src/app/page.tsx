@@ -4,6 +4,7 @@ import { OG_BASE } from '@/lib/meta'
 import { HomeUI } from '@/components/HomeUI'
 import { Hero, Intro, SideNav } from '@/components/Hero'
 import { Chapter1, Chapter2, Chapter3 } from '@/components/Chapters'
+import { House2 } from '@/components/House2'
 import { DayScroller } from '@/components/DayScroller'
 import { Faq, Marquee, Services } from '@/components/Sections'
 import { Gallery } from '@/components/Gallery'
@@ -29,6 +30,7 @@ export default function Home() {
           <Chapter1 />
           <Chapter2 />
           <Chapter3 />
+          <House2 />
           <DayScroller />
           <Marquee />
           <Services />
