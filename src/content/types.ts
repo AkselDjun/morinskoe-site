@@ -2,6 +2,8 @@ export type PhotoMeta = { alt: string; pos: string }
 export type Shot = { key: string; cap: string; pos: string }
 export type Season = 'day' | 'evening' | 'winter'
 export type GalleryItem = { type: 'big' | 'pair'; photos: Shot[] } | { type: 'end' }
+export type Clip = { src: string; poster: string; cap: string; pos: string }
+export type HouseItem = { type: 'big' | 'pair'; photos: Shot[] } | { type: 'video'; clip: Clip }
 export type MapPoint = { n: number; title: string; text: string; x: number; y: number; px: number; py: number; photos: Shot[] }
 export type PolicyBlock =
   | { type: 'p' | 'note'; html: string }
